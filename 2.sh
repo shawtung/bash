@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "local result:"
+
 if [ $# != 2 ]; then
 	echo "exactly two parameters required!"
 	exit 0
@@ -9,6 +9,8 @@ if [ "$1" == "" ]; then
 	echo "keyword not valid!"
 	exit 0
 fi
+
+echo "local result:"
 
 if ! [ -d $2 ]; then
 	echo "directory not valid!"
@@ -49,14 +51,8 @@ if ! [ -d $2 ]; then
 	exit 0
 fi
 
-
-kw=$1
-dir=$2
-
-
 cur_dir=$dir
 original_dir_flag=true
-
 
 file_list=`ls -R $dir | grep -v '^$' | sed 's/://'`
 for file_name in $file_list
@@ -77,7 +73,3 @@ done
 
 exit
 EOF
-
-
-
-
